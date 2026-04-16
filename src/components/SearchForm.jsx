@@ -3,7 +3,7 @@ function SearchForm({limite,carregando,banco,termo, onBancoChange, onTermoChange
   
 
   return (
-    <div className="flex gap-4 mb-8">
+    <div className="flex gap-4 mb-8 flex-wrap">
         <div className="relative ">
           <Search
             className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
