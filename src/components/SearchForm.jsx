@@ -3,7 +3,7 @@ function SearchForm({limite,carregando,banco,termo, onBancoChange, onTermoChange
   
 
   return (
-    <div className="flex gap-4 mb-8 flex-wrap">
+    <div className="flex gap-4 mb-8  flex-col md:flex-row">
         <div className="relative ">
           <Search
             className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
@@ -18,14 +18,14 @@ function SearchForm({limite,carregando,banco,termo, onBancoChange, onTermoChange
               if (e.key === 'Enter') buscar()
             }}
             onChange={(e) => onTermoChange(e.target.value)}
-            className="bg-gray-800 px-4 py-2  pl-9 rounded w-64"
+            className="bg-gray-800 px-4 py-2  pl-9 rounded w-full md:w-64"
           />
         </div>
 
         <select
           value={banco}
           onChange={(e) => onBancoChange(e.target.value)}
-          className="bg-gray-800 px-4 py-2 rounded"
+          className="bg-gray-800 px-4 py-2 rounded w-full md:w-auto"
         >
           <option value="pubmed">Artigos</option>
           <option value="taxonomy">Taxonomia</option>
@@ -37,7 +37,7 @@ function SearchForm({limite,carregando,banco,termo, onBancoChange, onTermoChange
           type="number"
           value={limite}
           onChange={(e) => onLimiteChange(e.target.value)}
-          className="bg-gray-800 px-4 py-2 rounded w-20"
+          className="bg-gray-800 px-4 py-2 rounded w-full md:w-20"
           min={1}
           max={20}
         />
@@ -45,7 +45,7 @@ function SearchForm({limite,carregando,banco,termo, onBancoChange, onTermoChange
         <button
           onClick={buscar}
           disabled={carregando}
-          className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded cursor-pointer font-semibold  disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded cursor-pointer font-semibold w-full md:w-auto  disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {carregando ? "Buscando..." : "Buscar"}
         </button>
